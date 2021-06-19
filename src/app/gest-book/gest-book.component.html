@@ -1,0 +1,33 @@
+<div class="row ecom-home-catalog-row">
+  <!-- .col-lg-4-->
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6" *ngFor="let book of  books | filterdata: queryString : 'title'; let i = index">
+    <!-- .ecom-home-catalog-card -->
+    <div class="card ecom-home-catalog-card">
+      <figure>
+        <img class="card-img-top" src="{{book.cover}}" alt="{{book.title}}">
+        <figcaption>
+          <button type="button" class="btn" id="{{i}}" (click)="openModal(i);">
+            Lire plus
+          </button>
+        </figcaption>
+      </figure>
+      <!-- .card-body -->
+      <div class="card-body">
+        <h5 class="card-title ecom-home-catalog-book-title">{{book.title}}</h5>
+        <p class="card-text ecom-home-catalog-book-price">
+          <span>{{book.price}}</span>
+          <span>&euro;</span>
+        </p>
+        <a class="btn btn-primary ecom-home-catalog-add-cart" id="{{book.id}}" >
+          <span  class="ecom-responsive" routerLink="/modifybook/{{book.id}}" >modifier</span>
+          <span class="ecom-home-add-to-cart-icon">
+            <i class="material-icons">mode_edit</i>
+          </span>
+        </a><!-- todo a verifier -->
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.col-lg-4-->
+  </div>
+  <!-- .ecom-home-catalog-card -->
+</div>
